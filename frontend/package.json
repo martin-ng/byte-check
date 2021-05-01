@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack serve --config webpack/webpack.config.js --env env=dev --open",
     "build": "webpack --config webpack/webpack.config.js --env env=prod",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\""
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
+  
   "devDependencies": {
     "@babel/core": "^7.14.0",
     "@babel/plugin-transform-runtime": "^7.13.15",
@@ -24,13 +26,21 @@
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
     "@types/react": "^17.0.4",
     "@types/react-dom": "^17.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.4",
+    "eslint": "^7.25.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "html-webpack-plugin": "^5.3.1",
+    "react-refresh": "^0.10.0",
     "style-loader": "^2.0.0",
     "typescript": "^4.2.4",
     "webpack": "^5.36.2",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
   }
+  
 }

@@ -5,7 +5,7 @@ export { Section } from "./Section"
 export { About, Login, Signup } from "./section/SectionIndex"
 
 // TextCompare
-export { Stats, TextHome, TextInput, TextView } from "./textCompare/TextHomeIndex"
+export { Stats, TextHome, TextView } from "./textCompare/TextHomeIndex"
 
 // Navbar
 export { Logo, Nav } from "./navbar/NavbarIndex"

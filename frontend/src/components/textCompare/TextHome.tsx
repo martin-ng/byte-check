@@ -1,5 +1,6 @@
 import React, { FC, useState, ChangeEvent } from 'react'
-import { TextInput } from "./TextHomeIndex"
+import { TextView } from "./TextHomeIndex"
+
 
 export const TextHome: FC = () => {
 
@@ -22,17 +23,20 @@ export const TextHome: FC = () => {
     const [added, setAdded] = useInput([])
 
 
-    const handleInputChange = (event: any) => {
+    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         event.preventDefault()
     }
 
     return (
-        <div>
-            {/* <TextInput />
-             */}
-            {/* <input placeholder="first" type="text" value={first} onChange={setFirst}></input> */}
-            <input placeholder="second" type="text" value={second} onChange={setSecond}></input>
+        <div className="text-container">
 
+            <div className="text-input">
+                <textarea value={first} placeholder="Your text here" onChange={setFirst} />
+                <textarea value={second} placeholder="Your text here" onChange={setSecond} />
+
+            </div>
+
+            <button onClick={ }>Click</button>
         </div>
     )
 }

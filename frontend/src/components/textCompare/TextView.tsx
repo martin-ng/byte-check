@@ -8,7 +8,7 @@ type Props = {
 
 export const TextView: FC<Props> = ({ sameText, deletedOrAdded, status }) => {
     let lineContent: string = status === "deleted" ? "lineContentDel" : "lineContentAdd"
-
+    console.log("same", sameText)
     return (
         <div className="textView">
             <div style={{ height: "100px" }}></div>

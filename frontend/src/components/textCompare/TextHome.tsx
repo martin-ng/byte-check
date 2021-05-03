@@ -1,5 +1,6 @@
 import React, { FC, useState, ChangeEvent } from 'react'
 import { TextView } from "./TextHomeIndex"
+import { Welcome } from "../index"
 import { leastCommonSubsequence, printDifference } from "../../utils"
 
 export const TextHome: FC = () => {
@@ -21,6 +22,18 @@ export const TextHome: FC = () => {
     const [deleted, setDeleted] = useState<string[]>([])
     const [sameTwo, setSameTwo] = useState<string[]>([])
     const [added, setAdded] = useState<string[]>([])
+    const [deletedLength, setDeletedLength] = useState<number>(0)
+    const [addedLength, setAddedLength] = useState<number>(0)
+
+    const countDiff = (array: string[]) => {
+        let count: number = 0
+        for (let i: number = 0; i < array.length; i++) {
+            if (array[i] !== undefined) {
+                count++
+            }
+        }
+        return count
+    }
 
     const checkDifferences = (): void => {
         console.log('testing')
@@ -33,11 +46,26 @@ export const TextHome: FC = () => {
 
         let one: any = leastCommonSubsequence(dataOne, dataTwo)
         let finalData: Array<Array<string>> = printDifference(one, dataOne, dataTwo, dataOne.length, dataTwo.length)
-        console.log('final', finalData)
+        let delLength: number = countDiff(finalData[1])
+        let addLength = countDiff(finalData[3])
+
+        setSameOne(finalData[0])
+        setDeleted(finalData[1])
+        setSameTwo(finalData[2])
+        setAdded(finalData[3])
+        setDeletedLength(delLength)
+        setAddedLength(addLength)
     }
 
     return (
         <div className="text-container">
+            {!checking && <Welcome /> ? (
+                <Welcome />) : (
+                <div>
+                    <TextView sameText={sameOne} deletedOrAdded={deleted} status="deleted" />
+                    <TextView sameText={sameTwo} deletedOrAdded={added} status="added" />
+                </div>
+            )}
 
             <div className="text-input">
                 <textarea placeholder="Your text here" onChange={setFirst} />

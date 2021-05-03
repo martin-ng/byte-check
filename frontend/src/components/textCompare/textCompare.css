@@ -1,3 +1,18 @@
+.button {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.button-container {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    
+    justify-content: center;
+    flex-direction: column;
+    max-width: 200px;
+}
 
 .content-container {
     display: flex;
@@ -10,11 +25,16 @@
     background-color: red;
 }
 
+.content-container div {
+    border: 1px #ccc solid;
+    padding: 10px;
+}
+
 .welcome {
     /* width: 1024px; */
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    /* flex-direction: column; */
     margin: 50px;
 }
 
@@ -28,5 +48,5 @@
 textarea {
     width: 95%;
     height: 200px;
-    /* margin: 10px; */
+    margin: 10px;
 }

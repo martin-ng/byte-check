@@ -75,8 +75,12 @@ export const TextHome: FC = () => {
             </div>
 
             <div className="button-container">
-                <button onClick={() => checkDifferences()}>Click</button>
-                <button onClick={() => clearAll()}>Clear All</button>
+                <div className="button">
+                    <button onClick={() => checkDifferences()}>Click</button>
+                </div>
+                <div className="button">
+                    <button onClick={() => clearAll()}>Clear All</button>
+                </div>
             </div>
         </div>
     )

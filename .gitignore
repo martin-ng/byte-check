@@ -1,3 +1,10 @@
 .env
 venv
 node_modules
+.vscode
+bundle.js
+bundle.js.map
+bundle.js.LICENSE.txt
+.DS_Store
+yarn-error.log
+config.js

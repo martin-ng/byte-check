@@ -1,5 +1,11 @@
-export { Header } from "./Header";
-export { Section } from "./Section";
-export { Logo } from "./navbar/Logo"
-export { Nav } from "./navbar/Nav"
-export { About } from "./section/About"
+export { Header } from "./Header"
+export { Section } from "./Section"
+
+// Section
+export { About, Login, Signup } from "./section/SectionIndex"
+
+// TextCompare
+export { Stats, TextHome, TextInput, TextView } from "./textCompare/TextHomeIndex"
+
+// Navbar
+export { Logo, Nav } from "./navbar/NavbarIndex"

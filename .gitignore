@@ -1,6 +1,7 @@
 .env
 venv
-node_modules
+node_modules/
+__pycache__/
 .vscode
 bundle.js
 bundle.js.map

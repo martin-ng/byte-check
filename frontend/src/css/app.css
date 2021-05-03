@@ -8,6 +8,7 @@
 }
 
 header {
+    display: flex;
     min-height: 70px;
     background: #555;
     color: whitesmoke;
@@ -17,6 +18,7 @@ header {
     align-items: center;
     flex-wrap: wrap;
 }
+
 
 header .logo {
     margin-left: 50px;

@@ -2,6 +2,7 @@ import React, { FC, useState, ChangeEvent } from 'react'
 import { TextView } from "./TextHomeIndex"
 import { Welcome } from "../index"
 import { leastCommonSubsequence, printDifference } from "../../utils"
+import './textCompare.css'
 
 export const TextHome: FC = () => {
 
@@ -36,7 +37,6 @@ export const TextHome: FC = () => {
     }
 
     const checkDifferences = (): void => {
-        console.log('testing')
 
         setChecking(true)
         setComparison([])
@@ -57,22 +57,27 @@ export const TextHome: FC = () => {
         setAddedLength(addLength)
     }
 
+    const clearAll = (): void => { }
+
     return (
-        <div className="text-container">
+        <div className="content-container">
             {!checking && <Welcome /> ? (
                 <Welcome />) : (
-                <div>
+                <div className="text-view-container">
                     <TextView sameText={sameOne} deletedOrAdded={deleted} status="deleted" />
                     <TextView sameText={sameTwo} deletedOrAdded={added} status="added" />
                 </div>
             )}
 
-            <div className="text-input">
+            <div className="text-input-container">
                 <textarea placeholder="Your text here" onChange={setFirst} />
                 <textarea placeholder="Your text here" onChange={setSecond} />
             </div>
 
-            <button onClick={() => checkDifferences()}>Click</button>
+            <div className="button-container">
+                <button onClick={() => checkDifferences()}>Click</button>
+                <button onClick={() => clearAll()}>Clear All</button>
+            </div>
         </div>
     )
 }

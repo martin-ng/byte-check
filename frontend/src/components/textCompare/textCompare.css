@@ -1,0 +1,32 @@
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1024px;
+    min-height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    background-color: red;
+}
+
+.welcome {
+    /* width: 1024px; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 50px;
+}
+
+.text-input-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 50px;
+}
+
+textarea {
+    width: 95%;
+    height: 200px;
+    /* margin: 10px; */
+}

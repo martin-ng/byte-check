@@ -1,13 +1,13 @@
-import { leastCommonSubsequence } from '../utils'
+import { longestCommonSubsequence } from '../utils'
 
-describe('leastCommonSubsequence', () => {
+describe('longestCommonSubsequence', () => {
     test('testing lcs one', () => {
         let textOne: string = 'martin loves to code'
         let textTwo: string = 'martin hates to code'
         let m: number = textOne.length - 1
         let n: number = textTwo.length - 1
         let actualResult: number = 16
-        let grid: number[][] = leastCommonSubsequence(textOne, textTwo)
+        let grid: number[][] = longestCommonSubsequence(textOne, textTwo)
         let result: number = grid[m][n]
 
         expect(result).toEqual(actualResult)
@@ -18,7 +18,7 @@ describe('leastCommonSubsequence', () => {
         let m: number = textOne.length - 1
         let n: number = textTwo.length - 1
         let actualResult: number = 15
-        let grid: number[][] = leastCommonSubsequence(textOne, textTwo)
+        let grid: number[][] = longestCommonSubsequence(textOne, textTwo)
         let result: number = grid[m][n]
 
         expect(result).toEqual(actualResult)

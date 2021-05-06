@@ -1,4 +1,4 @@
-export const leastCommonSubsequence = (textOne: string, textTwo: string) => {
+export const longestCommonSubsequence = (textOne: string, textTwo: string) => {
   if (!textOne || !textTwo) return 0
 
   let m: number = textOne.length

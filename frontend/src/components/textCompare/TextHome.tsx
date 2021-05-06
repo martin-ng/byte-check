@@ -1,7 +1,7 @@
 import React, { FC, useState, ChangeEvent } from 'react'
-import { TextView } from "./TextHomeIndex"
+import { TextView, Stats } from "./TextHomeIndex"
 import { Welcome } from "../index"
-import { leastCommonSubsequence, printDifference } from "../../utils"
+import { longestCommonSubsequence, printDifference } from "../../utils"
 import './textCompare.css'
 
 export const TextHome: FC = () => {
@@ -18,7 +18,6 @@ export const TextHome: FC = () => {
     const [first, setFirst] = useInput('')
     const [second, setSecond] = useInput('')
     const [checking, setChecking] = useState<boolean>(false)
-    const [comparison, setComparison] = useState<string[]>([])
     const [sameOne, setSameOne] = useState<string[]>([])
     const [deleted, setDeleted] = useState<string[]>([])
     const [sameTwo, setSameTwo] = useState<string[]>([])
@@ -39,12 +38,11 @@ export const TextHome: FC = () => {
     const checkDifferences = (): void => {
 
         setChecking(true)
-        setComparison([])
 
         const dataOne: string = first.split(' ')
         const dataTwo: string = second.split(' ')
 
-        let one: any = leastCommonSubsequence(dataOne, dataTwo)
+        let one: any = longestCommonSubsequence(dataOne, dataTwo)
         let finalData: Array<Array<string>> = printDifference(one, dataOne, dataTwo, dataOne.length, dataTwo.length)
         let delLength: number = countDiff(finalData[1])
         let addLength = countDiff(finalData[3])
@@ -63,9 +61,16 @@ export const TextHome: FC = () => {
         <div className="content-container">
             {!checking && <Welcome /> ? (
                 <Welcome />) : (
-                <div className="text-view-container">
-                    <TextView sameText={sameOne} deletedOrAdded={deleted} status="deleted" />
-                    <TextView sameText={sameTwo} deletedOrAdded={added} status="added" />
+                <div>
+
+                    <div className="text-view-container">
+                        <TextView sameText={sameOne} deletedOrAdded={deleted} status="deleted" />
+                        <TextView sameText={sameTwo} deletedOrAdded={added} status="added" />
+                    </div>
+                    <div className="stats">
+                        <Stats count={deletedLength} status={"deleted"} />{" "}
+                        <Stats count={addedLength} status={"added"} />
+                    </div>
                 </div>
             )}
 

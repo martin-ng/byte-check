@@ -25,10 +25,40 @@
     background-color: red;
 }
 
+
 .content-container div {
     border: 1px #ccc solid;
     padding: 10px;
 }
+
+/* TextView */
+
+.deleted {
+    background: #ffaa00;
+  }
+
+.lineContentDel {
+    background: #ffd9b3;
+    vertical-align: top;
+    text-align: left;
+}
+
+.lineContentAdd {
+    background: #b3ffe6;
+    vertical-align: top;
+    text-align: left;
+}
+
+.textView {
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.textCompare {
+    width: 100%;
+    background-color: white;
+  }
 
 .welcome {
     /* width: 1024px; */

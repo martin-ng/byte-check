@@ -22,7 +22,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
-    background-color: red;
+    background-color: whitesmoke;
 }
 
 
@@ -50,7 +50,7 @@
 }
 
 .textView {
-    width: 98%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -61,10 +61,8 @@
   }
 
 .welcome {
-    /* width: 1024px; */
     display: flex;
     justify-content: center;
-    /* flex-direction: column; */
     margin: 50px;
 }
 

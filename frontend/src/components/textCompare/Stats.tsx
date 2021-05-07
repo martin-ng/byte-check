@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
 
-type Props {
+type Props = {
     count: number,
     status: string
 }
 
-export const Stats: FC = ({ count, status }) => {
+export const Stats: FC<Props> = ({ count, status }) => {
     const divType: string = status === "deleted" ? "removedDiv" : "addDiv";
     const addOrRemoved: string = status === "deleted" ? "removed" : "additions";
     const countType: string = status === "deleted" ? "Removals" : "Additions";

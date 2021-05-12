@@ -9,6 +9,27 @@ This app is extension of Diff Check! with plans to extend its functionality such
 https://github.com/martin-ng/Diff-Check
 
 
+## Download
+
+Step by step guide to download repo and start the app (frontend).
+
+Clone the project to your selected directory:
+
+> git clone https://github.com/martin-ng/byte-check.git
+
+Install the NPM modules
+
+> yarn install or npm install
+
+Start the application
+
+> yarn start or npm start
+
+Visit the following URL to use Byte Check.
+
+> http://localhost:8080/
+
+
 ## Technologies
 
 - React: Frontend framework that syncs the UI and state through its virtual DOM.

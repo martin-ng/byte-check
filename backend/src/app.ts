@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import mongoose from 'mongoose';
 
 import logging from './config/logging';
 import config from './config/config';
@@ -7,6 +8,15 @@ import routes from './routes/index';
 
 const NAMESPACE = 'Server';
 const app = express();
+
+mongoose
+    .connect(config.mongo.url, config.mongo.options)
+    .then((result) => {
+        logging.info(NAMESPACE, 'Connected to MongoDB');
+    })
+    .catch((error) => {
+        logging.error(NAMESPACE, error.message, error);
+    });
 
 /** Cors */
 

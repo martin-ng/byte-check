@@ -15,12 +15,16 @@ const validateToken = (req: Request, res: Response, next: NextFunction) => {
 const register = async (req: Request, res: Response, next: NextFunction) => {
     const { username, password } = req.body;
     try {
-        const hash = await argon.hash(password);
-        console.log('hash', hash);
+        const hashedPassword = await argon.hash(password);
+
         res.send(password);
     } catch (error) {
         console.log(error);
     }
 };
 
-export { validateToken, register };
+const login = async (req: Request, res: Response, next: NextFunction) => {
+    console.log('login');
+};
+
+export { validateToken, register, login };

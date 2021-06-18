@@ -9,14 +9,14 @@ import routes from './routes/index';
 const NAMESPACE = 'Server';
 const app = express();
 
-mongoose
-    .connect(config.mongo.url, config.mongo.options)
-    .then((result) => {
-        logging.info(NAMESPACE, 'Connected to MongoDB');
-    })
-    .catch((error) => {
-        logging.error(NAMESPACE, error.message, error);
-    });
+// mongoose
+//     .connect(config.mongo.url, config.mongo.options)
+//     .then((result) => {
+//         logging.info(NAMESPACE, 'Connected to MongoDB');
+//     })
+//     .catch((error) => {
+//         logging.error(NAMESPACE, error.message, error);
+//     });
 
 /** Cors */
 
@@ -41,7 +41,9 @@ app.use((req, res, next) => {
 
 /** Routes */
 
-app.get('/', routes);
+app.use(express.json());
+
+app.use('/', routes);
 
 app.use((req, res, next) => {
     const error = new Error('Not found');

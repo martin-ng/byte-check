@@ -1,7 +1,9 @@
 import express from 'express';
 import logging from './config/logging';
-import config from './config/config';
 import cors from 'cors';
+
+import config from './config/config';
+import routes from './routes/index';
 
 const NAMESPACE = 'Server';
 const app = express();
@@ -29,9 +31,9 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/', (req, res) => {
-    res.send('hi world');
-});
+/** Routes */
+
+app.get('/', routes);
 
 app.use((req, res, next) => {
     const error = new Error('Not found');

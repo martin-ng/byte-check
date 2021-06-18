@@ -16,3 +16,19 @@ app.use((req, res, next) => {
 
     next();
 });
+
+app.get('/', (req, res) => {
+    res.send('hi world');
+});
+
+app.use((req, res, next) => {
+    const error = new Error('Not found');
+
+    return res.status(404).json({
+        message: error.message
+    });
+});
+
+app.listen(config.server.port, () => {
+    console.log(`${config.server.hostname} is listening on port ${config.server.port}`);
+});

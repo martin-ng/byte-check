@@ -1,9 +1,21 @@
 import express from 'express';
 import logging from './config/logging';
 import config from './config/config';
+import cors from 'cors';
 
 const NAMESPACE = 'Server';
 const app = express();
+
+/** Cors */
+
+const options: cors.CorsOptions = {
+    allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'X-Access-Token'],
+    credentials: true,
+    methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
+    preflightContinue: false
+};
+
+app.use(cors(options));
 
 /** Logging Middleware */
 

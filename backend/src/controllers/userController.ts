@@ -14,6 +14,15 @@ const validateToken = (req: Request, res: Response, next: NextFunction) => {
 
 const register = async (req: Request, res: Response, next: NextFunction) => {
     const { username, password } = req.body;
+    if (!password || typeof password !== 'string') {
+        return res.json({ status: 'error', error: 'Invalid password' });
+    }
+    if (password.length < 5) {
+        return res.json({
+            status: 'error',
+            error: 'Password is too short. Please make it at least 6 characters.'
+        });
+    }
     try {
         const hashedPassword = await argon.hash(password);
 

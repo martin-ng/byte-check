@@ -3,12 +3,12 @@ import IUser from '../interfaces/user';
 
 const UserSchema = new mongoose.Schema<IUser>(
     {
-        email: { type: String, required: true, unique: true },
+        email: { type: String, required: true, match: /.+\@.+\..+/, unique: true },
         name: { type: String, required: true },
         password: { type: String, required: true }
     },
-    { collection: 'users' }
+    { timestamps: true }
 );
 
-const model = mongoose.model('UserSchema', UserSchema);
+const model = mongoose.model('User', UserSchema);
 export default model;

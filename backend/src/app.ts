@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import helmet from 'helmet';
 import mongoose from 'mongoose';
 
 import logging from './config/logging';
@@ -9,14 +10,25 @@ import routes from './routes/index';
 const NAMESPACE = 'Server';
 const app = express();
 
-// mongoose
-//     .connect(config.mongo.url, config.mongo.options)
-//     .then((result) => {
-//         logging.info(NAMESPACE, 'Connected to MongoDB');
-//     })
-//     .catch((error) => {
-//         logging.error(NAMESPACE, error.message, error);
-//     });
+/** MongoDB connection */
+
+mongoose
+    .connect(config.mongo.url, config.mongo.options)
+    .then((result) => {
+        logging.info(NAMESPACE, 'Connected to MongoDB');
+    })
+    .catch((error) => {
+        logging.error(NAMESPACE, error.message, error);
+    });
+
+const db = mongoose.connection;
+db.on('error', (err) => {
+    console.log(err);
+});
+
+db.once('open', () => {
+    console.log('Database Connection Established!');
+});
 
 /** Cors */
 
@@ -39,9 +51,10 @@ app.use((req, res, next) => {
     next();
 });
 
-/** Routes */
-
+app.use(helmet());
 app.use(express.json());
+
+/** Routes */
 
 app.use('/', routes);
 

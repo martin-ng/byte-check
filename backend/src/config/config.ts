@@ -14,14 +14,15 @@ const MONGO_OPTIONS = {
 
 const MONGO_USERNAME = process.env.MONGO_USERNAME || 'superuser';
 const MONGO_PASSWORD = process.env.MONGO_PASSWORD || 'password';
-const MONGO_HOST = process.env.MONGO_URL;
+const MONGO_HOST = process.env.MONGO_URL || 'mongodb://localhost:27017/bytecheck';
 
 const MONGO = {
     host: MONGO_HOST,
     username: MONGO_USERNAME,
     password: MONGO_PASSWORD,
     options: MONGO_OPTIONS,
-    url: `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}`
+    // url: `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}`
+    url: `${MONGO_HOST}`
 };
 
 const SERVER_HOSTNAME = process.env.HOST_NAME || 'localhost';

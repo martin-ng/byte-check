@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from 'express';
 import logging from '../config/logging';
-import argon from 'argon2';
 import mongoose from 'mongoose';
 import User from '../models/user';
 import signJWT from '../helper/signJWT';
+import bcryptjs from 'bcryptjs';
 
 const NAMESPACE = 'USER';
 
@@ -29,28 +29,66 @@ const register = async (req: Request, res: Response, next: NextFunction) => {
             error: 'Password is too short. Please make it at least 6 characters.'
         });
     }
-    const hashedPassword = await argon.hash(password);
-
-    try {
-        const newUser = await User.create({
-            _id: new mongoose.Types.ObjectId(),
-            email,
-            name,
-            password: hashedPassword
-        });
-
-        newUser.save();
-        return res.status(201).json({ newUser });
-    } catch (error) {
-        if (error.code === 11000) {
-            return res.json({ status: 'error', error: 'Username already in use' });
+    bcryptjs.hash(password, 10, async (hashError, hashedPassword) => {
+        if (hashError) {
+            return res.status(401).json({
+                message: hashError.message,
+                error: hashError
+            });
         }
-        throw error;
-    }
+        try {
+            const newUser = await User.create({
+                _id: new mongoose.Types.ObjectId(),
+                email,
+                name,
+                password: hashedPassword
+            });
+            newUser.save();
+            return res.status(201).json({ newUser });
+        } catch (error) {
+            if (error.code === 11000) {
+                return res.json({ status: 'error', error: 'Username already in use' });
+            }
+            throw error;
+        }
+    });
 };
 
 const login = async (req: Request, res: Response, next: NextFunction) => {
-    console.log('login');
+    let { email, password } = req.body;
+
+    try {
+        const users = await User.find({ email }).exec();
+
+        if (users.length !== 1) {
+            return res.status(401).json({ message: 'Unauthorized access' });
+        }
+
+        bcryptjs.compare(password, users[0].password, (error, result) => {
+            if (error) {
+                return res.status(401).json({
+                    message: 'Password do not match'
+                });
+            } else if (result) {
+                signJWT(users[0], (_error, token) => {
+                    if (_error) {
+                        return res.status(500).json({
+                            message: _error.message,
+                            error: _error
+                        });
+                    } else if (token) {
+                        return res.status(200).json({
+                            message: 'Auth was a success',
+                            token: token,
+                            user: users[0]
+                        });
+                    }
+                });
+            }
+        });
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 export { validateToken, register, login };

@@ -4,7 +4,7 @@
 
 Byte Check is a web application that allows user to check the insertions and deletions between two text inputs. This app is primarily used to check text files with planned implementations for text files and images.
 
-This app is extension of Diff Check! with plans to extend its functionality such as implementing a user management database that stores the user's comparisons. Please see the following link to see Byte Check's current implementation.
+This app is extension of Diff Check! with plans to extend its functionality such as implementing a user management database that stores the user's comparisons. Please see the following link to see Byte Check's current frontend implementation.
 
 https://github.com/martin-ng/Diff-Check
 
@@ -34,13 +34,16 @@ Visit the following URL to use Byte Check.
 
 - React: Frontend framework that syncs the UI and state through its virtual DOM.
 
-- GraphQL: Query language to efficiently pull user data and allow the user to retain its session.
+- Node: JavaScript runtime built on Chrome's V8 engine.
 
-- Django: Python MVT (Model-View-Template) web framework to rapidly develop Byte Check's data access layer and business logic that communicates with its React-based frontend interface.
+- Express: Node's web application framework.
 
-- Postgres: Relational database to store the user's account information and saved text inputs.
+- MongoDB: NoSQL docuemnt-oriented database to save the user's profile and saved texts.
+
+- Jest: Testing framework.
 
 - Typescript: A superset of Javascript to create typed components and functions.
+
 
 ## MVP Requirements 
 
@@ -52,6 +55,8 @@ Visit the following URL to use Byte Check.
 
 ## Currently implementing
 
-1. Implementing Django, GraphQL, and Postgres to created a user database with the user's saved comparisons.
+1. Implementing Node, Express, MongoDB to created a user database with the user's saved comparisons.
 
 2. Improve the frontend user interface.
+
+3. Implement Redis to handle user's JWT to save session.

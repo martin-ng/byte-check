@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/', routes);
+app.use('/api', routes);
 
 app.listen(port, host, () => {
     log.info(`Server is listening on http://${host}:${port}`);

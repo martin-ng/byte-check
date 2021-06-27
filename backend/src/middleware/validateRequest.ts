@@ -2,7 +2,7 @@ import { AnySchema } from 'yup';
 import { Request, Response, NextFunction } from 'express';
 import log from '../logger';
 
-const validate = (schema: AnySchema) => async (req: Request, res: Response, next: NextFunction) => {
+export const validate = (schema: AnySchema) => async (req: Request, res: Response, next: NextFunction) => {
     try {
         await schema.validate({
             body: req.body,
@@ -15,3 +15,5 @@ const validate = (schema: AnySchema) => async (req: Request, res: Response, next
         return res.status(400).send(error.errors);
     }
 };
+
+export default validate;

@@ -19,3 +19,5 @@ const SessionSchema = new mongoose.Schema(
 );
 
 const Session = mongoose.model<SessionDoc>('Session', SessionSchema);
+
+export default Session;

@@ -25,7 +25,11 @@ UserSchema.pre('save', async function (next: mongoose.HookNextFunction) {
 
     if (!user.isModified('password')) return next();
 
-    const salt = await bcrypt.genSalt(config.get('saltWork'));
+    const salt = await bcrypt.genSalt(config.get('saltNumber'));
+
+    const hash = await bcrypt.hashSync(user.password, salt);
+
+    user.password = hash;
 });
 
 UserSchema.methods.comparePassword = async function (candidatePassword: string) {

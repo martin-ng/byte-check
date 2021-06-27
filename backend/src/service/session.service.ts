@@ -3,6 +3,7 @@ import { LeanDocument } from 'mongoose';
 import Session from '../model/session.model';
 import { SessionDoc } from '../model/session.model';
 import { UserDoc } from '../model/user.model';
+import { sign } from '../utils/jwt.utils';
 
 export async function createSession(userId: string, userAgent: string) {
     const session = await Session.create({ user: userId, userAgent });

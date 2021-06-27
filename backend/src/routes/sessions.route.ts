@@ -1,10 +1,10 @@
-// import express from 'express';
-// import validateRequest from '../middleware/validateRequest';
-// import { createUserSchema } from '../schema/';
-// import { createUser } from '../service/user.service';
+import express from 'express';
+import validateRequest from '../middleware/validateRequest';
+import { createUserSchema } from '../schema/user.schema';
+import { createUserSessionController } from '../controller/session.controller';
 
-// const router = express.Router();
+const router = express.Router();
 
-// router.post('/', validateRequest(createUserSchema), createUser);
+router.post('/sessions', validateRequest(createUserSchema), createUserSessionController);
 
-// export default router;
+export default router;

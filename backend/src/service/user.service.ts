@@ -4,6 +4,7 @@ import { omit } from 'lodash';
 
 export async function createUser(input: DocumentDefinition<UserDoc>) {
     try {
+        // console.log('testing route', input);
         return await User.create(input);
     } catch (error) {
         throw new Error(error);

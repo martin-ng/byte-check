@@ -2,7 +2,7 @@ import { get } from 'lodash';
 import { Request, Response } from 'express';
 import config from 'config';
 import { validatePassword } from '../service/user.service';
-import { createSession, createAccessToken, updateSession } from '../service/session.service';
+import { createSession, createAccessToken, findSessions, updateSession } from '../service/session.service';
 import { sign } from '../utils/jwt.utils';
 
 export async function createUserSessionController(req: Request, res: Response) {
@@ -28,7 +28,14 @@ export async function createUserSessionController(req: Request, res: Response) {
 
 export async function destroyUserSessionController(req: Request, res: Response) {
     const sessionId = get(req, 'user.session');
-    // console.log('session id', sessionId);
     await updateSession({ _id: sessionId }, { valid: false });
     return res.sendStatus(200);
+}
+
+export async function getUserSessionsController(req: Request, res: Response) {
+    const userId = get(req, 'user._id');
+    console.log('user id', userId);
+    const sessions = await findSessions({ user: userId, valid: true });
+
+    return res.send(sessions);
 }

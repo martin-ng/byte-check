@@ -51,3 +51,8 @@ export async function reIssueAccessToken({ refreshToken }: { refreshToken: strin
 export async function updateSession(query: FilterQuery<SessionDoc>, update: UpdateQuery<SessionDoc>) {
     return Session.updateOne(query, update);
 }
+
+export async function findSessions(query: FilterQuery<SessionDoc>) {
+    console.log('query', query);
+    return Session.find(query).lean();
+}

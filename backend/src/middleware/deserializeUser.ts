@@ -4,12 +4,9 @@ import { decode } from '../utils/jwt.utils';
 import { reIssueAccessToken } from '../service/session.service';
 
 const deserializeUser = async (req: Request, res: Response, next: NextFunction) => {
-    console.log('DESER IN ');
-    console.log('req', req.headers);
     const accessToken = get(req, 'headers.authorization', '').replace(/^Bearer\s/, '');
     const refreshToken = get(req, 'headers.x-refresh');
-    console.log('req after', req.headers);
-    // console.log('access', accessToken);
+
     if (!accessToken) return next();
 
     const { decoded, expired } = decode(accessToken);

@@ -11,7 +11,7 @@ const host = config.get('host') as string;
 
 const app = express();
 app.use(deserializeUser);
-console.log('after deser');
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

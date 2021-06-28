@@ -5,6 +5,10 @@ import { createUserSessionController } from '../controller/session.controller';
 
 const router = express.Router();
 
+// Login
 router.post('/', validateRequest(createUserSessionSchema), createUserSessionController);
+
+// Logout
+router.delete('/');
 
 export default router;

@@ -23,7 +23,7 @@ export function createAccessToken({
             ...user,
             session: session._id
         },
-        { expiresIn: config.get('accessTokenTtl') }
+        { expiresIn: config.get('accessTokenTime') }
     );
     return accessToken;
 }

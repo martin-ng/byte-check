@@ -1,10 +1,11 @@
 import config from 'config';
 import { get } from 'lodash';
-import { LeanDocument } from 'mongoose';
+import { FilterQuery, LeanDocument, UpdateQuery } from 'mongoose';
 import Session from '../model/session.model';
 import { SessionDoc } from '../model/session.model';
 import { UserDoc } from '../model/user.model';
 import { sign, decode } from '../utils/jwt.utils';
+import { findUser } from '../service/user.service';
 
 export async function createSession(userId: string, userAgent: string) {
     const session = await Session.create({ user: userId, userAgent });
@@ -29,7 +30,7 @@ export function createAccessToken({
     return accessToken;
 }
 
-export async function reissueAccessToken({ refreshToken }: { refreshToken: string }) {
+export async function reIssueAccessToken({ refreshToken }: { refreshToken: string }) {
     const { decoded } = decode(refreshToken);
 
     if (!decoded || !get(decoded, '_id')) return false;
@@ -45,4 +46,8 @@ export async function reissueAccessToken({ refreshToken }: { refreshToken: strin
     const accessToken = createAccessToken({ user, session });
 
     return accessToken;
+}
+
+export async function updateSession(query: FilterQuery<SessionDoc>, update: UpdateQuery<SessionDoc>) {
+    return Session.updateOne(query, update);
 }

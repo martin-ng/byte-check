@@ -1,7 +1,8 @@
 import express from 'express';
 import validateRequest from '../middleware/validateRequest';
 import { createUserSessionSchema } from '../schema/user.schema';
-import { createUserSessionController } from '../controller/session.controller';
+import { createUserSessionController, destroyUserSessionController } from '../controller/session.controller';
+import { authUser } from '../middleware';
 
 const router = express.Router();
 
@@ -9,6 +10,6 @@ const router = express.Router();
 router.post('/', validateRequest(createUserSessionSchema), createUserSessionController);
 
 // Logout
-router.delete('/');
+router.delete('/', authUser, destroyUserSessionController);
 
 export default router;

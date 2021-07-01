@@ -7,7 +7,7 @@ import { sign } from '../utils/jwt.utils';
 
 export async function createUserSessionController(req: Request, res: Response) {
     const user = await validatePassword(req.body);
-
+    console.log('in create session');
     if (!user) {
         return res.status(401).send('Invalid account');
     }
@@ -34,7 +34,7 @@ export async function destroyUserSessionController(req: Request, res: Response) 
 
 export async function getUserSessionsController(req: Request, res: Response) {
     const userId = get(req, 'user._id');
-    console.log('user id', userId);
+
     const sessions = await findSessions({ user: userId, valid: true });
 
     return res.send(sessions);

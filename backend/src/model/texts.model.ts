@@ -20,7 +20,7 @@ const TextSchema = new mongoose.Schema(
         },
         user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
         originalText: { type: String, default: true },
-        newTExt: { type: String, default: true }
+        newText: { type: String, default: true }
     },
     { timestamps: true }
 );

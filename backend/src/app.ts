@@ -11,10 +11,8 @@ const host = config.get('host') as string;
 
 const app = express();
 app.use(deserializeUser);
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
 app.use('/api', routes);
 
 app.listen(port, host, () => {

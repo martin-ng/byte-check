@@ -53,6 +53,5 @@ export async function updateSession(query: FilterQuery<SessionDoc>, update: Upda
 }
 
 export async function findSessions(query: FilterQuery<SessionDoc>) {
-    console.log('query', query);
     return Session.find(query).lean();
 }

@@ -4,7 +4,6 @@ import log from '../logger';
 
 export const validateRequest = (schema: AnySchema) => async (req: Request, res: Response, next: NextFunction) => {
     try {
-        // console.log('schema', schema);
         await schema.validate({
             body: req.body,
             query: req.query,

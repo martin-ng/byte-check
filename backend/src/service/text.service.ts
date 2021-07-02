@@ -13,3 +13,7 @@ export function findText(query: FilterQuery<TextDoc>, options: QueryOptions = { 
 export function findAndUpdateText(query: FilterQuery<TextDoc>, update: UpdateQuery<TextDoc>, options: QueryOptions) {
     return Text.findOneAndUpdate(query, update, options);
 }
+
+export function deleteText(query: FilterQuery<TextDoc>) {
+    return Text.deleteOne(query);
+}

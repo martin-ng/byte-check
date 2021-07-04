@@ -29,3 +29,7 @@ export async function validatePassword({ email, password }: { email: UserDoc['em
 
     return omit(user.toJSON(), 'password');
 }
+
+export async function deleteAllUsers() {
+    return User.deleteMany({});
+}

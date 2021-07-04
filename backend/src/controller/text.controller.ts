@@ -16,6 +16,7 @@ export async function createTextController(req: Request, res: Response) {
 export async function updateTextController(req: Request, res: Response) {
     const userId = get(req, 'user._id');
     const textId = get(req, 'params.textId');
+    const update = req.body;
 
     const text = await findText({ textId });
 
@@ -46,7 +47,6 @@ export async function getTextController(req: Request, res: Response) {
 export async function deleteTextController(req: Request, res: Response) {
     const userId = get(req, 'user._id');
     const textId = get(req, 'params.textId');
-    const update = req.body;
 
     const text = await findText({ textId });
 

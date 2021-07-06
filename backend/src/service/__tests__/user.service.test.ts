@@ -1,4 +1,4 @@
-import { createUser, findUser, deleteAllUsers } from '../user.service';
+import { createUser, findUser, deleteAllUsers, validatePassword } from '../user.service';
 
 describe('User service', () => {
     afterAll(async () => {
@@ -30,11 +30,12 @@ describe('User service', () => {
     describe('User log in', () => {
         describe('the given password is correct', () => {
             it('should return true', async () => {
-                const user = await createUser(userInfo);
+                await createUser(userInfo);
+                const loggedUser = await validatePassword({ email: userInfo.email, password: userInfo.password });
+                let status = true;
+                if (!loggedUser) status = false;
 
-                const foundUser = await findUser({ email: userInfo.email });
-                const foundUserPass = foundUser.comparePassword(userInfo.password);
-                expect(foundUserPass).toBeTruthy();
+                expect(status).toBeTruthy();
             });
         });
     });

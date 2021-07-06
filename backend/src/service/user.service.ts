@@ -20,7 +20,6 @@ export async function validatePassword({ email, password }: { email: UserDoc['em
     if (!user) {
         return false;
     }
-
     const isValid = await user.comparePassword(password);
 
     if (!isValid) {

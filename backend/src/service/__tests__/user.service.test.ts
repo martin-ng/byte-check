@@ -38,5 +38,16 @@ describe('User service', () => {
                 expect(status).toBeTruthy();
             });
         });
+
+        describe('the given password is incorrect', () => {
+            it('should return false', async () => {
+                await createUser(userInfo);
+                const loggedUser = await validatePassword({ email: userInfo.email, password: 'wrongPassWoRd!!' });
+                let status = true;
+                if (!loggedUser) status = false;
+
+                expect(status).toBeFalsy();
+            });
+        });
     });
 });

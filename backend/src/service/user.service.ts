@@ -16,12 +16,12 @@ export async function findUser(query: FilterQuery<UserDoc>) {
 
 export async function validatePassword({ email, password }: { email: UserDoc['email']; password: string }) {
     const user = await User.findOne({ email });
-
+    console.log('user', user);
     if (!user) {
         return false;
     }
     const isValid = await user.comparePassword(password);
-
+    console.log('isvalid', isValid);
     if (!isValid) {
         return false;
     }

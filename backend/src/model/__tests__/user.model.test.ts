@@ -17,6 +17,7 @@ describe('User model', () => {
     };
 
     let user: any;
+    let regex: RegExp;
 
     beforeEach(async () => {
         user = await User.create(userInfo);
@@ -43,6 +44,20 @@ describe('User model', () => {
         describe('Sign up success', () => {
             it('returns true if _id is a number', () => {
                 expect(Number(user._id)).toEqual(expect.any(Number));
+            });
+        });
+
+        describe('Email tests', () => {
+            it('returns true if the email is a valid email', () => {
+                regex = new RegExp('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}');
+                expect(regex.test(user.email)).toBeTruthy();
+            });
+        });
+
+        describe('Name tests', () => {
+            it('returns true if first name contains characters', () => {
+                regex = new RegExp('[a-zA-Z]');
+                expect(regex.test(user.name)).toBeTruthy();
             });
         });
     });

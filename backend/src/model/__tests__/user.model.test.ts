@@ -55,8 +55,12 @@ describe('User model', () => {
         });
 
         describe('Name tests', () => {
-            it('returns true if first name contains characters', () => {
+            it('returns true if name contains characters', () => {
                 regex = new RegExp('[a-zA-Z]');
+                expect(regex.test(user.name)).toBeTruthy();
+            });
+            it('returns true if there are no numbers', () => {
+                regex = new RegExp('[0-9]');
                 expect(regex.test(user.name)).toBeTruthy();
             });
         });

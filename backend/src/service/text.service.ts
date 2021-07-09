@@ -2,18 +2,22 @@ import { DocumentDefinition, FilterQuery, QueryOptions, UpdateQuery } from 'mong
 
 import Text, { TextDoc } from '../model/texts.model';
 
-export function createText(input: DocumentDefinition<TextDoc>) {
+export async function createText(input: DocumentDefinition<TextDoc>) {
     return Text.create(input);
 }
 
-export function findText(query: FilterQuery<TextDoc>, options: QueryOptions = { lean: true }) {
+export async function findText(query: FilterQuery<TextDoc>, options: QueryOptions = { lean: true }) {
     return Text.findOne(query, {}, options);
 }
 
-export function findAndUpdateText(query: FilterQuery<TextDoc>, update: UpdateQuery<TextDoc>, options: QueryOptions) {
+export async function findAndUpdateText(query: FilterQuery<TextDoc>, update: UpdateQuery<TextDoc>, options: QueryOptions) {
     return Text.findOneAndUpdate(query, update, options);
 }
 
-export function deleteText(query: FilterQuery<TextDoc>) {
+export async function deleteText(query: FilterQuery<TextDoc>) {
     return Text.deleteOne(query);
+}
+
+export async function deleteAllText() {
+    return Text.deleteMany({});
 }

@@ -55,7 +55,11 @@ export const TextHome: FC = () => {
         setAddedLength(addLength)
     }
 
-    const clearAll = (): void => { }
+
+    // * This is a temporary fix * //
+    const clearAll = (): void => {
+        window.location.reload(false)
+    }
 
     return (
         <div className="content-container">

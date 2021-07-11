@@ -5,22 +5,22 @@ export const Nav: FC = () => {
     return (
         <ul>
             <li>
-                <NavLink exact to="/home" className="nav-home">
+                <NavLink className="nav-home" to="/">
                     Home
                 </NavLink>
             </li>
             <li>
-                <NavLink exact to="/about" className="nav-about">
+                <NavLink to="/about" className="nav-about">
                     About
                 </NavLink>
             </li>
             <li>
-                <NavLink exact to="/login">
+                <NavLink to="/login">
                     Login
                 </NavLink>
             </li>
             <li>
-                <NavLink exact to="/signup">
+                <NavLink to="/signup">
                     Signup
                 </NavLink>
             </li>

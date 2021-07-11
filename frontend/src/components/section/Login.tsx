@@ -1,9 +1,20 @@
 import React, { FC } from 'react'
 
 export const Login: FC = () => {
+    console.log("hello login")
     return (
         <form>
-            <label htmlFor="username">Username</label>
+            <div className='form-inner'>
+                <h2>Login</h2>
+                <div className='form-group'>
+                    <label htmlFor='email'>Email:</label>
+                    <input type='email' name='email' id='email' />
+                </div>
+                <div className='form-group'>
+                    <label htmlFor='password'>Password:</label>
+                    <input type='password' name='password' id='password' />
+                </div>
+            </div>
         </form>
     )
 }

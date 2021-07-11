@@ -6,7 +6,7 @@ export const Section: FC = () => {
     return (
         <section>
             <Switch>
-                <Route path='/' component={TextHome} />
+                <Route exact path='/' component={TextHome} />
                 <Route path='/about' component={About} />
                 <Route path='/login' component={Login} />
                 <Route path='/signup' component={Signup} />

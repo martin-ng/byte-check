@@ -8,10 +8,10 @@
     display: flex;
     margin-left: auto;
     margin-right: auto;
-    
     justify-content: center;
     flex-direction: column;
     max-width: 200px;
+    height: 100px;
 }
 
 .content-container {
@@ -22,12 +22,14 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
+    border-radius: 20px;
     background-color: whitesmoke;
 }
 
 
 .content-container div {
-    padding: 10px;
+    /* padding: 10px; */
+    /* margin: 20px; */
 }
 
 /* TextView */
@@ -55,7 +57,7 @@
 }
 
 .textCompare {
-    width: 100%;
+    width: 97%;
     background-color: white;
   }
 
@@ -69,7 +71,7 @@
     display: flex;
     justify-content: center;
     flex-direction: row;
-    margin: 50px;
+    margin: 20px 50px 10px 50px;
 }
 
 textarea {
@@ -79,9 +81,46 @@ textarea {
 }
 
 .text-view-container {
-    width: 95%;
+    width: 90%;
     display: flex;
     justify-content: center;
     flex-direction: row;
-    margin: 50px;
+    margin: 30px 0px 40px 55px;
 }
+
+.additions {
+    background: #00ffcc;
+}
+
+.removed {
+    background: #ffb366;
+}
+
+.removedDiv {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 0px 2px;
+  }
+
+.addDiv {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 0px 2px;
+}
+
+.stats {
+    width: 90%;
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    margin: 10px 10px 0px 60px;
+    text-align: left;
+}
+
+.statsClass {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+  }

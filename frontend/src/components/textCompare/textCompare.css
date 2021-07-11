@@ -77,3 +77,11 @@ textarea {
     height: 200px;
     margin: 10px;
 }
+
+.text-view-container {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 50px;
+}

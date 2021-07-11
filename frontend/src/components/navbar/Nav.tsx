@@ -15,8 +15,13 @@ export const Nav: FC = () => {
                 </NavLink>
             </li>
             <li>
-                <NavLink exact to="/Login/Signup">
-                    Login/Signup
+                <NavLink exact to="/login">
+                    Login
+                </NavLink>
+            </li>
+            <li>
+                <NavLink exact to="/signup">
+                    Signup
                 </NavLink>
             </li>
         </ul>

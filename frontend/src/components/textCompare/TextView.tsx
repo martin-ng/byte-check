@@ -9,6 +9,11 @@ type Props = {
 export const TextView: FC<Props> = ({ sameText, deletedOrAdded, status }) => {
     let lineContent: string = status === "deleted" ? "lineContentDel" : "lineContentAdd"
 
+
+    // * .map() method does not iterate over undefined, hence a new array was utilized to do so * //
+    const newDeletedOrAdded: (string | undefined)[] = [...deletedOrAdded]
+    const newSame: (string | undefined)[] = [...sameText]
+
     return (
         <div className="textView">
             <div style={{ height: "50px" }}></div>
@@ -16,27 +21,27 @@ export const TextView: FC<Props> = ({ sameText, deletedOrAdded, status }) => {
                 <tbody>
                     <tr className={lineContent}>
                         <td>
-                            {sameText.length <= deletedOrAdded.length
-                                ? deletedOrAdded.map((word: string, index: number) => {
+                            {newSame.length <= newDeletedOrAdded.length
+                                ? newDeletedOrAdded.map((word: string | undefined, index: number) => {
                                     if (word === undefined) {
-                                        return <span key={index}>{sameText[index]} </span>;
+                                        return <span key={index}>{newSame[index]} </span>;
                                     } else {
                                         return (
                                             <span key={index} className={status}>
-                                                {deletedOrAdded[index]}{" "}
+                                                {newDeletedOrAdded[index]}{" "}
                                             </span>
                                         );
                                     }
                                 })
-                                : sameText.map((word: string, index: number) => {
+                                : newSame.map((word: string | undefined, index: number) => {
                                     if (word === undefined) {
                                         return (
                                             <span key={index} className={status}>
-                                                {deletedOrAdded[index]}{" "}
+                                                {newDeletedOrAdded[index]}{" "}
                                             </span>
                                         );
                                     } else {
-                                        return <span key={index}>{sameText[index]} </span>;
+                                        return <span key={index}>{newSame[index]} </span>;
                                     }
                                 })}
                         </td>

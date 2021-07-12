@@ -9,7 +9,6 @@ type Props = {
 export const TextView: FC<Props> = ({ sameText, deletedOrAdded, status }) => {
     let lineContent: string = status === "deleted" ? "lineContentDel" : "lineContentAdd"
 
-
     // * .map() method does not iterate over undefined, hence a new array was utilized to do so * //
     const newDeletedOrAdded: (string | undefined)[] = [...deletedOrAdded]
     const newSame: (string | undefined)[] = [...sameText]

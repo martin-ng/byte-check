@@ -4,9 +4,11 @@
 
 Byte Check is a web application that allows user to check the insertions and deletions between two text inputs. This app is primarily used to check text files with planned implementations for text files and images.
 
-This app is extension of Diff Check! with plans to extend its functionality such as implementing a user management database that stores the user's comparisons. Please see the following link to see Byte Check's current frontend implementation.
+Please visit the following link to see the frontend implementation of Byte Check.
 
-https://github.com/martin-ng/Diff-Check
+https://bytecheck.netlify.app/
+
+The app's backend is currently under progress and will utilize user management.
 
 
 ## Download
@@ -56,7 +58,6 @@ Start the application
 Visit the following URL to use Byte Check.
 
 > http://localhost:1337/
-
 
 
 ## Technologies

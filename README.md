@@ -11,11 +11,16 @@ https://github.com/martin-ng/Diff-Check
 
 ## Download
 
-Step by step guide to download repo and start the app (frontend).
+Step by step guide to download repo and start the app.
+
 
 Clone the project to your selected directory:
 
 > git clone https://github.com/martin-ng/byte-check.git
+
+Change into the frontend directory:
+
+> cd frontend
 
 Install the NPM modules
 
@@ -28,6 +33,30 @@ Start the application
 Visit the following URL to use Byte Check.
 
 > http://localhost:8080/
+
+
+###### Backend
+
+Clone the project to your selected directory if you have not done so yet:
+
+> git clone https://github.com/martin-ng/byte-check.git
+
+Change into the backend directory:
+
+> cd backend
+
+Install the NPM modules
+
+> yarn install or npm install
+
+Start the application
+
+> yarn start or npm start
+
+Visit the following URL to use Byte Check.
+
+> http://localhost:1337/
+
 
 
 ## Technologies

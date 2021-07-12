@@ -11,7 +11,7 @@ export const TextView: FC<Props> = ({ sameText, deletedOrAdded, status }) => {
 
     return (
         <div className="textView">
-            <div style={{ height: "100px" }}></div>
+            <div style={{ height: "50px" }}></div>
             <table className="textCompare" cellSpacing="0" cellPadding="0">
                 <tbody>
                     <tr className={lineContent}>

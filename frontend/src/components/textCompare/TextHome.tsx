@@ -53,6 +53,7 @@ export const TextHome: FC = () => {
         setAdded(finalData[3])
         setDeletedLength(delLength)
         setAddedLength(addLength)
+        setChecking(true)
     }
 
 
@@ -66,7 +67,6 @@ export const TextHome: FC = () => {
             {!checking && <Welcome /> ? (
                 <Welcome />) : (
                 <div>
-
                     <div className="text-view-container">
                         <TextView sameText={sameOne} deletedOrAdded={deleted} status="deleted" />
                         <TextView sameText={sameTwo} deletedOrAdded={added} status="added" />
@@ -84,12 +84,11 @@ export const TextHome: FC = () => {
             </div>
 
             <div className="button-container">
-                <div className="button">
-                    <button onClick={() => checkDifferences()}>Click</button>
+                {!checking ? (<div>
+                    <button className='button' onClick={() => checkDifferences()}>Compare!</button>
                 </div>
-                <div className="button">
-                    <button onClick={() => clearAll()}>Clear All</button>
-                </div>
+                ) : null}
+                <button className="button" onClick={() => clearAll()}>Clear All</button>
             </div>
         </div>
     )
